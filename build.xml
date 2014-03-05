@@ -1,5 +1,6 @@
 <project default="all">
   <property name="src-dir" location="src" />
+  <property name="doc-dir" location="doc" />
 
   <path id="classpath.base">
     <pathelement location="lib/commons-csv-1.0-SNAPSHOT.jar" />
@@ -19,6 +20,12 @@
     <delete>
       <fileset dir="${src-dir}" includes="**/*.class" />
     </delete>
+  </target>
+
+  <target name="doc">
+    <javadoc sourcepath="${src-dir}" destdir="${doc-dir}">
+	   <classpath refid="classpath.base"/>
+	</javadoc>
   </target>
 
   <!--

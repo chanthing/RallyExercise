@@ -8,6 +8,7 @@ import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.Quote;
 
 import org.chanthing.csvtool.xform.*;
 import org.chanthing.csvtool.xform.CSVFieldXform;
@@ -26,7 +27,7 @@ public class CSVTrans {
     private static ArrayList<String>    destHeaders;
     static {
 	destHeaders = new ArrayList<String>(20);
-	destHeaders.add("Display Color");
+	destHeaders.add("\"Display Color\"");
 	destHeaders.add("Ready");
 	destHeaders.add("Name");
 	destHeaders.add("Description");
@@ -52,9 +53,9 @@ public class CSVTrans {
 	xforms[0] = new StringEchoXform("Sample Display Color");
 	xforms[1] = new BooleanFieldXform(true);
 	xforms[2] = new NameFieldXform();
-	xforms[3] = new NameFieldXform(); /* Really Description */
-	xforms[4] = new NameFieldXform(); /* Really Notes */
-	xforms[5] = new NameFieldXform(); /* Really UserName */
+	xforms[3] = new DescriptionFieldXform();
+	xforms[4] = new NotesFieldXform();
+	xforms[5] = new UserFieldXform(); 
 	xforms[6] = new StringEchoXform("Idea"); 
 	xforms[7] = new BooleanFieldXform(true); /* Really Numeric */
 	xforms[8] = new BooleanFieldXform(false);
@@ -73,7 +74,7 @@ public class CSVTrans {
      * In this case, the src and destination formats are the same.
      */
     private static CSVFormat srcFormat = CSVFormat.EXCEL.withHeader().withDelimiter(',');
-    private static CSVFormat destFormat = CSVFormat.EXCEL.withHeader().withDelimiter(',');
+    private static CSVFormat destFormat = CSVFormat.EXCEL.withHeader().withDelimiter(',').withQuotePolicy(Quote.NONE).withEscape('\\');
 
     public static void main(String[] args) throws IOException {
 	CSVParser    reader = null;
