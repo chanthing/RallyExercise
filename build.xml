@@ -1,0 +1,36 @@
+<project default="all">
+  <property name="src-dir" location="src" />
+
+  <path id="classpath.base">
+    <pathelement location="lib/commons-csv-1.0-SNAPSHOT.jar" />
+  </path>
+  <path id="classpath.test">
+    <pathelement location="/usr/share/junit/junit.jar" />
+    <pathelement location="${src-dir}" />
+    <path refid="classpath.base" />
+  </path>
+
+  <target name="compile">
+    <javac srcdir="${src-dir}">
+      <classpath refid="classpath.base"/>
+    </javac>
+  </target>
+  <target name="clean-compile">
+    <delete>
+      <fileset dir="${src-dir}" includes="**/*.class" />
+    </delete>
+  </target>
+
+  <!--
+  <target name="test" depends="compile-test">
+    <junit>
+      <classpath refid="classpath.test" />
+      <formatter type="brief" usefile="false" />
+      <test name="TestLinkedList" />
+    </junit>
+  </target>
+  -->
+
+  <target name="all" depends="compile" />
+  <target name="clean" depends="clean-compile" />
+</project>

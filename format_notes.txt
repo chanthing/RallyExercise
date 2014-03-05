@@ -1,0 +1,22 @@
+CSV file formatting considerations:
+
+Fields are separated by commas and enclosed in quotes if they contain commas or quotes
+Embedded quotes in your input data are doubled
+Embedded spaces do not require surrounding quotes
+There is no comma following the last field on the line
+Null fields are represented by two consecutive commas
+Leading and trailing spaces on fields—even inside quotes—are ignored
+File must normally end with a single CrLf (Carriage return, Line Feed or both)
+The length of the path to your CSV file may not exceed 255 characters
+Both Windows and non-Windows file browsing are supported
+You will be prompted with message dialogs from Rally should the following situations occur:
+
+Importing a file greater than 2MB
+Missing or incorrect header
+Invalid value for boolean fields: valid values are t, T, F, f, True, False, true, false
+Invalid, non-numeric values in numeric fields
+Invalid date formats: all dates must be formatted as mm/dd/yyyy
+Invalid user name fields (Owner, Submitted By) if the user name does not exist
+Importing a non-CSV file format
+Importing fields with case-sensitive list values that do not match
+Importing an empty file

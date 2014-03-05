@@ -1,0 +1,19 @@
+The City of Baltimore provides open access to city data including citations and 
+associated fines (https://data.baltimorecity.gov/Financial/Parking-Citations/n4ma-fj3m).  
+Our customer wants every citation to be a story in Rally.  Manually obtain a CSV 
+export containing all citations that occurred on July 4th, 2012.  Write a program 
+that loads the CSV data, transforms the data, and creates a second CSV file that is ready for upload into Rally.  The rules for the data going into Rally are:
+
+
+
+1.  The Rally Name field should contain the citation number
+
+2.  The Rally Description field should contain the Description
+
+3.  The Rally ViolationDate field should contain the date.  Rally dates are in ISO format
+
+4.  The Rally PlanEstimate field should contain the amount of the fine. The PlanEstimate field is an integer field.
+
+6.  The Rally LicenseExpiration field should contain the date of the license plate’s expiration.
+
+7.  The Rally Notes field should contain a bulleted list of the Make of car, the State the car is from (full text, not abbreviation), and the license plate number

@@ -1,0 +1,16 @@
+package org.chanthing.csvtool;
+
+
+
+/*
+ * Class that represents information on how to transform a record in a CSV file to a record in 
+ * another CSV file format.
+ *
+ * It records information, such as the field header and field index for each transformed field, as
+ * well as transformations that, given the source field value, returns the proper destination field
+ * value (both Strings).
+ */
+
+public class CSVXform {
+
+    private int 
