@@ -1,6 +1,11 @@
 package org.chanthing.csvtool;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import org.apache.commons.csv.CSVRecord;
+
+import org.chanthing.csvtool.xform.*;
 
 
 /*
@@ -18,37 +23,33 @@ import org.apache.commons.csv.CSVRecord;
 public class CSVXform {
 
     private int numDestFields;
-    private String destHeaderStrings[];
     private CSVFieldXform fieldXforms[];
 
     /*
      * Constructor for transform where all important attributes are specified in call.
      */
-    public CSVXform(int numDestFields, String destHeaderStrings[], CSVFieldXform fieldXforms[]) throws IllegalArgumentException {
+    public CSVXform(int numDestFields, CSVFieldXform fieldXforms[]) throws IllegalArgumentException {
 	this.numDestFields = numDestFields;
 
-	if (destHeaderStrings.length != numDestFields) {
-	    throw new IllegalArgumentException("Must have a header string for each field.");
-	}
-	this.destHeaderStrings = destHeaderStrings;
 	if (fieldXforms.length != numDestFields) {
 	    throw new IllegalArgumentException("Must have a transform for each field.");
+	}
+	for (int i = 0; i < numDestFields; i++) {
+	    if (fieldXforms[i] == null) {
+		throw new IllegalArgumentException("Null transform passed to CSVXform().");
+	    }
 	}
 	this.fieldXforms = fieldXforms;
     }
 	    
 
-    public String[] xform(CSVRecord src) { 
-	String destRecord[] = new String[numDestFields];
+    public List<String> xform(CSVRecord src) { 
+	List<String> destRecord = new ArrayList(numDestFields);
 
 	for (int i = 0; i < numDestFields; i++) {
-	    destRecord[i] = fieldXforms[i].xform(src.get(i));
+	    destRecord.add(fieldXforms[i].xform(src));
 	}
 	return destRecord;
-    }
-
-    public String[] getDestHeaders() {
-	return destHeaderStrings;
     }
 
     public int getNumDestFields() {

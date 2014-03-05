@@ -1,0 +1,3 @@
+"Display Color",Ready,Name,Description,Notes,Owner,"Schedule State","Plan Estimate",Blocked,"Code Review","Code Review Link","External Link",Risk,ServicesKanbanState,T-Shirt,Urgent
+
+"Sample Display Color",TRUE,"Sample Name (required field)","Sample Description","Sample Notes","Sample user name",Idea,15,TRUE,TRUE,TRUE,"Sample External Link",Medium,Release,S,TRUE
