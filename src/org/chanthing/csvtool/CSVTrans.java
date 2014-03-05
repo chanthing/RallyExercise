@@ -57,7 +57,7 @@ public class CSVTrans {
 	xforms[4] = new NotesFieldXform();
 	xforms[5] = new UserFieldXform(); 
 	xforms[6] = new StringEchoXform("Idea"); 
-	xforms[7] = new BooleanFieldXform(true); /* Really Numeric */
+	xforms[7] = new PlanEstimateXform();
 	xforms[8] = new BooleanFieldXform(false);
 	xforms[9] = new BooleanFieldXform(true);
 	xforms[10] = new BooleanFieldXform(true);
@@ -66,8 +66,8 @@ public class CSVTrans {
 	xforms[13] = new StringEchoXform("Release");
 	xforms[14] = new StringEchoXform("S");
 	xforms[15] = new BooleanFieldXform(false);
-	xforms[16] = new StringEchoXform("Temp"); /* ViolationDateXform(); */
-	xforms[17] = new StringEchoXform("Temp2"); /* LicenseExpiration(); */
+	xforms[16] = new ViolationDateXform(); 
+	xforms[17] = new LicenseExpirationXform();
     }
 
     /*

@@ -17,6 +17,8 @@ URL passed when I hit the "Export" button.
 Found Apache Commons CSV project as a Java Class Library for parsing CSV files. Checked out source code
 with svn and built required .jar file with Maven.
 
+Git URL for cloning is https://github.com/chanthing/RallyExercise.git
+
 Iteratively wrote and tested my solution, which used the following procedure for transforming the file.
 
 
@@ -41,7 +43,8 @@ a file containing the Baltimore City data, execute
         # xformfile.sh <in-csv-file> <out-csv-file>
 
 The sample input data I've provided (based on the problem definition) is in the file 
-Parking_Citations_07042012.csv. My sample output produced by my program is in RallyUserStoriesIn.csv.
+Parking_Citations_07042012.csv. My sample output produced by my program is in 
+RallyUserStoriesIn_07042012.csv.
 
 TODOs
 -----
@@ -49,6 +52,8 @@ TODOs
 The following tasks remain:
 
 - Add JUnit unit testing. Yes, this should've been done as I wrote the code.
+
+- Add code to make sure that PlanEstimateXform.xform returns an integer
 
 - Implement retrieve.sh script to go grab data from the Baltimore city database, based on command line
 arguments specifying the desired date range (and eventually other filter parameters).
